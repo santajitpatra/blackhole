@@ -7,6 +7,6 @@
 
 module.exports = {
   images: {
-    domains: ['unsplash.com'],
+    domains: ["unsplash.com", "fakestoreapi.com"],
   },
 }

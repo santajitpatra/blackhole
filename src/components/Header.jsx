@@ -10,9 +10,9 @@ const Header = () => {
       <div className="flex items-center bg-primary flex-grow py-2">
         <div className="mt-2 flex items-center flex-grow sm:flex-grow-0">
           <Image
-            src="/BlackholeLogoT.png"
+            src="/BLACKHOLE.png"
             alt="Picture of the author"
-            width={100}
+            width={200}
             height={40}
             objectFit="contain"
             className="cursor-pointer"
