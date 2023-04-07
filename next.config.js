@@ -5,6 +5,7 @@
 
 // module.exports = nextConfig
 
+
 module.exports = {
   images: {
     domains: ["unsplash.com", "fakestoreapi.com"],

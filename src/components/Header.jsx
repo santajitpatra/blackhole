@@ -4,12 +4,24 @@ import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import MenuIcon from "@mui/icons-material/Menu";
 
+import { useSession, signIn, signOut } from "next-auth/react"
+import { useRouter } from 'next/router'
+import { useSelector } from "react-redux";
+import { selectItems } from "@/slices/basketSlice";
+
+
 const Header = () => {
+  const { data: session } = useSession();
+  const router = useRouter();
+  const items = useSelector(selectItems);
+
+  
   return (
     <header>
       <div className="flex items-center bg-primary flex-grow py-2">
         <div className="mt-2 flex items-center flex-grow sm:flex-grow-0">
           <Image
+          onClick={() => router.push('/')}
             src="/BLACKHOLE.png"
             alt="Picture of the author"
             width={200}
@@ -26,17 +38,21 @@ const Header = () => {
           <SearchIcon className="m-3 h-12" />
         </div>
         <div className="text-white flex items-center text-xs space-x-6 mx-6 whitespace-nowrap">
-          <div className="link">
-            <p>Hello Santajit Patra</p>
+          <div onClick={!session ? signIn : signOut} className="link">
+            <p>
+              {session ? `Hello, ${session.user.name}` : "Sign In"}
+
+            
+            </p>
             <p className="md:text-sm font-extrabold ">Account & Lists</p>
           </div>
           <div className="link">
             <p>Returns</p>
             <p className="md:text-sm font-extrabold ">& Orders</p>
           </div>
-          <div className="link flex relative items-center">
+          <div onClick={() => router.push('/checkout')} className="link flex relative items-center">
             <span className="absolute top-0 right-0 md:right-10 h-4 w-4 bg-cyan-400 text-center text-black font-bold rounded-full">
-              0
+              {items.length}
             </span>
             <ShoppingCartIcon className="h-10" />
             <p className="hidden md:inline md:text-sm font-extrabold mt-2">
