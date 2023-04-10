@@ -1,5 +1,5 @@
 import React from "react";
-import { Header, Banner, ProductFeed, Footer } from "@/components";
+import { Header, Footer } from "@/components";
 import Image from "next/image";
 import { selectItems, selectTotal } from "@/slices/basketSlice";
 import { useSelector } from "react-redux";
@@ -7,6 +7,7 @@ import CheckoutProduct from "../components/CheckoutProduct";
 import { useSession } from "next-auth/react";
 import Currency from "react-currency-formatter";
 import { loadStripe } from "@stripe/stripe-js";
+import axios from "axios";
 
 const stripePromise = loadStripe(process.env.stripe_public_key);
 
@@ -15,20 +16,19 @@ const checkout = () => {
   const total = useSelector(selectTotal);
   const { session } = useSession();
 
+  const createCheckoutSession = async () => {
+    const stripe = await stripePromise;
 
-const createCheckoutSession = async () => {
-const stripe = await stripePromise;
+    const checkoutSession = await axios.post("/api/create-checkout-session", {
+      items: items,
+      email: session.user.email,
+    });
 
-const checkoutSession = await axios.post("/api/create-checkout-session", {
-items: items,
-email: session.user.email,
-});
+    // const result = await stripe.redirectToCheckout({ sessionId: checkoutSession.data.id,
+    // });
 
-const result = await stripe.redirectToCheckout({ sessionId: checkoutSession.data.id,
-});
-
-if (result.error) alert(result.error.message); 
-};
+    // if (result.error) alert(result.error.message);
+  };
 
   return (
     <div className="bg-gray-100">
@@ -75,8 +75,8 @@ if (result.error) alert(result.error.message);
                 </span>
               </h2>
               <button
-              onClick={createCheckoutSession}
                 role="link"
+                onClick={createCheckoutSession}
                 disabled={!session}
                 className={`btn mt-2 ${
                   !session &&

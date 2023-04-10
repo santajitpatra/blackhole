@@ -61,7 +61,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      {/* <!-- ==================== menu buttom  ====================  -->  */}
+      {/* <!-- ==================== menu button  ====================  -->  */}
       <div className="flex items-center space-x-3 p-2 pl-6 bg-primary-light text-white text-sm">
         <p className="link flex items-center">
         <MenuIcon className="h-6 mr-1" />
