@@ -1,7 +1,10 @@
 import React from "react";
-import { Header, Banner, ProductFeed, Footer } from "@/components";
+import Header from "../components/Header";
+import Banner from "../components/Banner";
+import Footer from "../components/Footer";
+import ProductFeed from "../components/ProductFeed";
 
-function home({ products }) {
+function home ({ products }) {
   return (
     <div className="bg-gray-100">
       <Header />
@@ -15,13 +18,11 @@ function home({ products }) {
 }
 
 export async function getServerSideProps(context) {
-  const products = await fetch("https://fakestoreapi.com/products").then(
+  const products = await fetch("https://santa-api.onrender.com/products").then(
     (res) => res.json()
   );
 
-  // const res = await fetch(`https://fakestoreapi.com/products`);
-  // const products = await res.json();
-
+  
   return {
     props: {
       products,

@@ -18,33 +18,32 @@ const Banner = () => {
       >
         <div>
           <Image
-            loading="lazy"
+            // loading="lazy"
             src="/show.png"
             alt="Picture of the author"
+            priority
             width={1400}
             height={1400}
           />
         </div>
         <div>
           <Image
-            loading="lazy"
+            // loading="lazy"
             src="/t-shat.png"
             alt="Picture of the author"
-            fill
-            sizes="100vw,
-            50vw,
-            33vw"
+            priority
+            width={1400}
+            height={1400}
           />
         </div>
         <div>
           <Image
-            loading="lazy"
+            // loading="lazy"
             src="/camera.png"
             alt="Picture of the author"
-            fill
-            sizes="100vw,
-            50vw,
-            33vw"
+            priority
+            width={1400}
+            height={1400}
           />
         </div>
       </Carousel>

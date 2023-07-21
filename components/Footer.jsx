@@ -1,8 +1,7 @@
 import React from "react";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 const Footer = () => {
-
   const currentYear = new Date().getFullYear();
 
   return (
@@ -40,7 +39,9 @@ const Footer = () => {
             </a>
           </div>
           <div className="flex flex-col items-center md:items-start mt-6 md:mt-0">
-            <h3 className="text-lg font-bold mb-3">Blackhole Payment Products</h3>
+            <h3 className="text-lg font-bold mb-3">
+              Blackhole Payment Products
+            </h3>
             <a href="#" className="hover:text-white mb-2">
               Blackhole Business Card
             </a>
@@ -74,21 +75,31 @@ const Footer = () => {
           </div>
         </div>
         <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-center mt-8 px-4">
-        <div className="flex items-center mb-4 md:mb-0">
-          <Image           src="/BLACKHOLE.png"
-            alt="Picture of the author"
-            width={200}
-            height={40}
-            objectFit="contain"
-            className="cursor-pointer"/>
-          <span className="ml-2">&copy; {currentYear} Blackhole. All rights reserved.</span>
+          <div className="flex items-center mb-4 md:mb-0">
+            <Image
+              src="/BLACKHOLE.png"
+              alt="Picture of the author"
+              width={200}
+              height={40}
+              objectFit="contain"
+              className="cursor-pointer"
+            />
+            <span className="ml-2">
+              &copy; {currentYear} Blackhole. All rights reserved.
+            </span>
+          </div>
+          <div className="flex">
+            <a href="#" className="mr-4 hover:text-white">
+              Privacy Notice
+            </a>
+            <a href="#" className="mr-4 hover:text-white">
+              Conditions of Use
+            </a>
+            <a href="#" className="mr-4 hover:text-white">
+              Interest-Based
+            </a>
+          </div>
         </div>
-        <div className="flex">
-          <a href="#" className="mr-4 hover:text-white">Privacy Notice</a>
-          <a href="#" className="mr-4 hover:text-white">Conditions of Use</a>
-          <a href="#" className="mr-4 hover:text-white">Interest-Based</a>
-          </div>
-          </div>
       </div>
     </div>
   );

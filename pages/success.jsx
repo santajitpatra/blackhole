@@ -4,10 +4,10 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { useRouter } from "next/router";
 
 const success = () => {
-  const router = useRouter();
+  // const router = useRouter();
   return (
     <div className="bg-gray-100 h-screen">
-      <Header />
+      {/* <Header />
 
       <main className="max-w-screen-lg mx-auto">
         <div className="flex flex-col p-10 bg-white">
@@ -19,19 +19,16 @@ const success = () => {
             </h2>
           </div>
           <p>
-            Thank you for shopping with us. We'll send a confirmation o item has
-            shipped, if you would like to check the status of order(s) please
-            press the link below.
+            Thank you for shopping with us. We&apos;ll send a confirmation o
+            item has shipped, if you would like to check the status of order(s)
+            please press the link below.
           </p>
-          <button
-            onClick={() => router.push("/orders")}
-            className="btn mt-8"
-          >
+          <button onClick={() => router.push("/orders")} className="btn mt-8">
             Go to order
           </button>
         </div>
       </main>
-      <Footer />
+      <Footer /> */}
     </div>
   );
 };
