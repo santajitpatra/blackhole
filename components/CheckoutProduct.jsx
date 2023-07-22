@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/legacy/image";
 import StarIcon from "@mui/icons-material/Star";
-import Currency from "react-currency-formatter";
 import { useDispatch } from "react-redux";
 import { addToBasket, removeFromBasket } from "@/redux/slices/basketSlice";
 
@@ -60,7 +59,8 @@ function CheckoutProduct({
         </div>   */}
 
         <p className="text-xs my-2 line-clamp-2">{description}</p>
-        <Currency quantity={price} currency="GBP" />
+        {/* <Currency quantity={price} currency="GBP" /> */}
+        <p> &yen; {price}</p>
         <div className="flex items-center space-x-2 -mt-5 mb-4">
           <span className="text-cyan-100 bg-cyan-900 rounded-lg px-1 text-center w-14">
             Prime

@@ -4,7 +4,6 @@ import Image from "next/image";
 import { selectItems, selectTotal } from "@/redux/slices/basketSlice";
 import { useSelector } from "react-redux";
 import CheckoutProduct from "../components/CheckoutProduct";
-import Currency from "react-currency-formatter";
 import { loadStripe } from "@stripe/stripe-js";
 import { useSession } from "next-auth/react";
 
