@@ -18,7 +18,7 @@ function home ({ products }) {
 }
 
 export async function getServerSideProps(context) {
-  const products = await fetch("https://santa-api.onrender.com/products").then(
+  const products = await fetch("https://fakestoreapi.com/products").then(
     (res) => res.json()
   );
 

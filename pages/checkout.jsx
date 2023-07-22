@@ -12,7 +12,7 @@ import axios from "axios";
 
 // const stripePromise = loadStripe(process.env.stripe_public_key);
 
-function checkout  ()  {
+function Checkout  ()  {
   const { data: session } = useSession();
   const items = useSelector(selectItems);
   const total = useSelector(selectTotal);
@@ -95,4 +95,4 @@ function checkout  ()  {
   );
 };
 
-export default checkout;
+export default Checkout;

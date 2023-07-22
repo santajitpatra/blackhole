@@ -3,7 +3,7 @@ import { Header, Footer } from "@/components";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { useRouter } from "next/router";
 
-const success = () => {
+const Success = () => {
   // const router = useRouter();
   return (
     <div className="bg-gray-100 h-screen">
@@ -33,4 +33,4 @@ const success = () => {
   );
 };
 
-export default success;
+export default Success;
