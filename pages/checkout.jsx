@@ -6,29 +6,30 @@ import { useSelector } from "react-redux";
 import CheckoutProduct from "../components/CheckoutProduct";
 import { loadStripe } from "@stripe/stripe-js";
 import { useSession } from "next-auth/react";
-
 import axios from "axios";
 
-// const stripePromise = loadStripe(process.env.stripe_public_key);
+const stripePromise = loadStripe(
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+);
 
 function Checkout  ()  {
   const { data: session } = useSession();
   const items = useSelector(selectItems);
   const total = useSelector(selectTotal);
 
-  // const createCheckoutSession = async () => {
-    // const stripe = await stripePromise;
+  const createCheckoutSession = async () => {
+    const stripe = await stripePromise;
 
-    // const checkoutSession = await axios.post("/api/create-checkout-session", {
-    //   items: items,
-    //   email: session.user.email,
-    // });
+    const checkoutSession = await axios.post("/api/checkout_sessions", {
+      items: items,
+      email: session.user.email,
+    });
 
-    // const result = await stripe.redirectToCheckout({ sessionId: checkoutSession.data.id,
-    // });
+    const result = await stripe.redirectToCheckout({ sessionId: checkoutSession.data.id,
+    });
 
-    // if (result.error) alert(result.error.message);
-  // };
+    if (result.error) alert(result.error.message);
+  };
 
   return (
     <div className="bg-gray-100">
@@ -38,10 +39,6 @@ function Checkout  ()  {
           <img
             src="/show.png"
             alt="Picture of the author"
-            // width={1020}
-            // height={250}
-            // objectFit="contain"
-            // priority
           />
           <div className="flex flex-col p-5 space-y-5 bg-white">
             <h2 className="text-3xl border-b pb-4">
@@ -77,7 +74,7 @@ function Checkout  ()  {
               </h2>
               <button
                 role="link"
-                // onClick={createCheckoutSession}
+                onClick={createCheckoutSession}
                 disabled={!session}
                 className={`btn mt-2 ${
                   !session &&
