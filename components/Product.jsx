@@ -57,7 +57,7 @@ import { addToBasket } from "@/redux/slices/basketSlice";
       <p className="text-xs my-2 line-clamp-2">{description}</p>
       <div className="mb-5">
         {/* <Currency quantity={price} currency="USD" /> */}
-        <p> &yen; {price}</p>
+        <p> &#36; {price}</p>
       </div>
       <div className="flex items-center space-x-2 -mt-5 mb-4">
         <span className="text-cyan-100 bg-cyan-900 rounded-lg px-1 text-center w-14">

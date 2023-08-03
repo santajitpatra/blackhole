@@ -23,6 +23,7 @@
     "eslint-config-next": "13.4.11",
     "firebase": "^9.17.1",
     "micro": "^10.0.1",
+    "micro-cors": "^0.1.1",
     "moment": "^2.29.4",
     "next": "^13.4.11",
     "next-auth": "^4.19.2",

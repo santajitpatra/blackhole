@@ -12,7 +12,7 @@ const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
 );
 
-function Checkout  ()  {
+function Checkout() {
   const { data: session } = useSession();
   const items = useSelector(selectItems);
   const total = useSelector(selectTotal);
@@ -36,10 +36,7 @@ function Checkout  ()  {
       <Header />
       <main className="lg:flex max-w-screen-2xl mx-auto">
         <div className="flex-grow m-5 shadow-sm">
-          <img
-            src="/show.png"
-            alt="Picture of the author"
-          />
+          <img src="/show.png" alt="Picture of the author" />
           <div className="flex flex-col p-5 space-y-5 bg-white">
             <h2 className="text-3xl border-b pb-4">
               {items.length === 0
@@ -69,12 +66,13 @@ function Checkout  ()  {
                 Subtotal ({items.length} items):
                 <span className="font-bold">
                   {/* <Currency quantity={total} currency="GBP" /> */}
-                  <p> &yen; {total}</p>
+                  <p> &#36; {total}</p>
                 </span>
               </h2>
               <button
                 role="link"
                 onClick={createCheckoutSession}
+                // type="submit"
                 disabled={!session}
                 className={`btn mt-2 ${
                   !session &&
@@ -90,6 +88,6 @@ function Checkout  ()  {
       <Footer />
     </div>
   );
-};
+}
 
 export default Checkout;

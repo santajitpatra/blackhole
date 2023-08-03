@@ -60,7 +60,7 @@ function CheckoutProduct({
 
         <p className="text-xs my-2 line-clamp-2">{description}</p>
         {/* <Currency quantity={price} currency="GBP" /> */}
-        <p> &yen; {price}</p>
+        <p className="py-5"> &#36; {price}</p>
         <div className="flex items-center space-x-2 -mt-5 mb-4">
           <span className="text-cyan-100 bg-cyan-900 rounded-lg px-1 text-center w-14">
             Prime
